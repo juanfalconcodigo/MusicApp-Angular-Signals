@@ -1,0 +1,172 @@
+.footer-container {
+    width: 100%;
+    height: 100px;
+    background: #EB5757;
+    display: grid;
+    grid-template-areas: 'image items';
+    grid-template-columns: 100px auto;
+    grid-template-rows: auto;
+    &__image-content {
+        grid-area: image;
+        width: 100%;
+        height: 100%;
+    }
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__items {
+        grid-area: items;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 32px 0px 20px;
+        position: relative;
+        &-info {
+            width: 100%;
+            max-width: calc(50% - 68px);
+            &-song {
+                font-family: 'Quicksand';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 18px;
+                color: #FFFFFF;
+            }
+            &-singer {
+                font-family: 'Quicksand';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 15px;
+                color: #FFFFFF;
+            }
+        }
+    }
+    &__controls {
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: calc(100%/2 - 30px);
+        left: calc(100%/2 - 135.16px/2);
+    }
+    &__controls-audio {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+    }
+    &__controls-audio-play {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: #FF7676;
+        border-radius: 100%;
+        padding-left: 4px;
+    }
+    &__controls-audio-previous-next {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 22px;
+    }
+    &__controls-volume {
+        display: flex;
+        gap: 40px;
+        &-button {
+            background: transparent;
+            border: none;
+            padding: 0px;
+        }
+    }
+}
+
+// utilities
+.color-icon-white {
+    color: #FFFFFF;
+}
+
+.text-validate-length-footer {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+/*Range Reset*/
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100px;
+}
+
+
+/* Removes default focus */
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+
+/* slider track */
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    margin-top: -5px;
+    /* Centers thumb on the track */
+    /*custom styles*/
+    background-color: white;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+}
+
+@media only screen and (max-width:630px) {
+    .footer-container {
+        &__controls-audio {
+            gap: 20px;
+        }
+        &__controls-volume {
+            gap: 20px;
+        }
+    }
+    input[type="range"] {
+        width: 70px;
+    }
+}
+
+@media only screen and (max-width:475px) {
+    .footer-container {
+        &__items {
+            padding: 0px 32px 10px 20px;
+            align-items: flex-end;
+            &-info {
+                max-width: calc(100%);
+            }
+        }
+        &__controls {
+            top: calc(100%/2 - 40px);
+        }
+        &__controls-audio-play {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}

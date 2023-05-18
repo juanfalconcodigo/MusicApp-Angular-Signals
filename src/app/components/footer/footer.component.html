@@ -1,0 +1,26 @@
+<footer class="footer-container">
+
+    <div class="footer-container__image-content">
+        <img class="footer-container__image" [src]="image() || 'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg'" alt="Image song">
+    </div>
+    <div class="footer-container__items">
+        <div class="footer-container__items-info">
+            <h5 class="footer-container__items-info-song text-validate-length-footer">{{song()}}</h5>
+            <p class="footer-container__items-info-singer text-validate-length-footer">{{singer()}} - {{album()}}</p>
+        </div>
+        <div class="footer-container__controls">
+            <audio [src]="audio()" preload="auto" #audioControl></audio>
+            <div class="footer-container__controls-audio">
+                <div class="footer-container__controls-audio-previous-next color-icon-white" (click)="previous()"><i class="fa fa-step-backward" aria-hidden="true"></i></div>
+                <div class="footer-container__controls-audio-play color-icon-white" (click)="play()"><i class="fa fa-play fa-1x" aria-hidden="true"></i></div>
+                <div class="footer-container__controls-audio-previous-next color-icon-white" (click)="next()"><i class="fa fa-step-forward" aria-hidden="true"></i></div>
+            </div>
+        </div>
+        <div class="footer-container__controls-volume">
+            <input type="range" [formControl]="rangeVolume">
+            <button class="footer-container__controls-volume-button color-icon-white" (click)="cancelVolume()"><i class="fa fa-volume-off fa-2x" aria-hidden="true"></i></button>
+        </div>
+
+    </div>
+
+</footer>

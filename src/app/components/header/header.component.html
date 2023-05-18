@@ -1,0 +1,41 @@
+<!-- <div>
+            <span class="form-inline">
+                <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+                    <option *ngFor="let language of translate.getLangs()" [value]="language"
+                        [selected]="language === translate.currentLang">
+                        {{ language }}
+                    </option>
+                </select>
+            </span>
+
+            <div>
+                <div class="form-group">
+                    <label>{{'title' | translate}}</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>{{'author' | translate}}</label>
+                    <input type="email" class="form-control">
+                </div>
+            </div>
+            <div>
+                <form [formGroup]="formDataSearch" (ngSubmit)="search()">
+                    <input type="text" formControlName="search">
+                    <button type="submit">Search</button>
+                </form>
+
+            </div>
+
+        </div> -->
+<div class="header-container">
+    <form class="header-container__input" [formGroup]="formDataSearch" (ngSubmit)="search()">
+        <input type="text" placeholder="Buscar" formControlName="search" class="header-container__input-control">
+        <button type="submit" class="header-container__input-icon"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+    <div class="header-container__user-info">
+        <span class="header-container__user-info-icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </span>
+        <h4 class="header-container__user-info-name">{{userInfo().userName}}</h4>
+    </div>
+</div>

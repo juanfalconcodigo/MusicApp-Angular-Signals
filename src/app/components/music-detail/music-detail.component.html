@@ -1,0 +1,31 @@
+<div class="music-detail-container">
+    <div class="music-detail-container__image">
+        <ng-container *ngIf="artistSelected">
+            <img [src]="artistSelected.picture_medium" alt="Image Artist" class="image-fit">
+            <div class="music-detail-container__image-back">
+                <i class="fa fa-play fa-4x icon-play" aria-hidden="true"></i>
+            </div>
+        </ng-container>
+    </div>
+    <div class="music-detail-container__detail">
+        <div class="music-detail-container__detail-back" #back></div>
+        <div *ngIf="artistSelected" class="music-detail-container__detail-root">
+            <h2 class="music-detail-container__detail-title">{{artistSelected.name}}</h2>
+            <div class="music-detail-container__detail-follow">
+                <h3 class="music-detail-container__detail-f-detail">Lo mejor de {{artistSelected.name}}</h3>
+                <span class="music-detail-container__detail-f-number">{{artistSelected.nb_fan}} seguidores</span>
+            </div>
+            <h4 class="music-detail-container__detail-description">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia impedit ut blanditiis et est eum illum unde quibusdam sed vero beatae aspernatur accusamus.
+            </h4>
+            <div class="music-detail-container__detail-buttons">
+                <button class="music-detail-container__detail-button music-detail-container__detail-buttons-play">
+                    <span class="btn-text-inner btn-text-inner__play">Reproducir</span>
+                </button>
+                <button class="music-detail-container__detail-button music-detail-container__detail-buttons-follow">
+                    <span class="btn-text-inner btn-text-inner__follow">Seguir</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
