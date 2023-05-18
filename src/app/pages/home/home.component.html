@@ -1,0 +1,90 @@
+<section class="layout-container">
+    <section class="layout-container__header">
+        <section class="layout-container__sidebar" #sidebar>
+
+
+            <div class="layout-container__sidebar-icon-content">
+                <button class="layout-container__sidebar-icon-content-btn" (click)="toogleSidebar()">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                <h1 class="layout-container__sidebar-icon-content-title">FALCON MUSIC</h1>
+            </div>
+            <div class="layout-container__sidebar-options-content">
+                <div>
+                    <h3 class="layout-container__sidebar-subtitle">Mi librería</h3>
+                    <ul class="layout-container__sidebar-options">
+                        <li>
+                            <span class="layout-container__sidebar-option">Recientes</span>
+                        </li>
+                        <li>
+                            <span class="layout-container__sidebar-option">Artistas</span>
+                        </li>
+                        <li>
+                            <span class="layout-container__sidebar-option">Albums</span>
+                        </li>
+                        <li>
+                            <span class="layout-container__sidebar-option">Canciones</span>
+                        </li>
+                        <li>
+                            <span class="layout-container__sidebar-option">Estaciones</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="layout-container__sidebar-subtitle">Playlist</h3>
+                    <ul class="layout-container__sidebar-options">
+                        <li>
+                            <span class="layout-container__sidebar-option">Metal</span>
+                        </li>
+                        <li>
+                            <span class="layout-container__sidebar-option">Para bailar</span>
+                        </li>
+                        <li>
+                            <span class="layout-container__sidebar-option">Rock 90s</span>
+                        </li>
+                        <li>
+                            <span class="layout-container__sidebar-option">Baladas</span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="layout-container__content-main" #contentMain>
+            <section class="layout-container__content">
+
+                <div class="layout-container__content-header">
+                    <app-header (itemsResult)="viewData($event)" />
+                </div>
+                <div class="layout-container__content-music-detail">
+                    <app-music-detail />
+                </div>
+
+                <div class="layout-container__content-results">
+                    <h3 class="layout-container__content-results-title">Resultados</h3>
+                    <div class="layout-container__content-results-items">
+                        <div class="layout-container__content-item" *ngFor="let item of items()" (click)="changeStateMusic(item)">
+                            <div class="layout-container__content-item-image">
+                                <img [src]="item.album.cover_medium" alt="Image song" class="image-fit">
+                                <div class="layout-container__content-item-image-back">
+                                    <i class="fa fa-play fa-2x icon-play" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="layout-container__content-item-title text-validate-length">{{item.title}}
+                                </h4>
+                            </div>
+                            <h5 class="layout-container__content-item-artist text-validate-length">{{item.artist.name}}
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </section>
+    <section class="layout-container__footer">
+        <app-footer />
+    </section>
+
+</section>
