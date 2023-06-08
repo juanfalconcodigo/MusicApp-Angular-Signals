@@ -33,7 +33,7 @@
         align-items: center;
         gap: 12px;
         &-icon {
-            color: #E86060;
+            color: var(--color-content-header-icon);
         }
         &-name {
             font-family: 'Quicksand';
@@ -41,7 +41,7 @@
             font-weight: 400;
             font-size: 16px;
             line-height: 20px;
-            color: #4F4F4F;
+            color: var(--color-content-header-title);
         }
     }
 }

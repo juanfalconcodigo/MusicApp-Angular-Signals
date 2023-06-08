@@ -84,13 +84,13 @@
             align-items: center;
             gap: 20px;
             &-play {
-                background: #E86060;
+                background: var(--bg-content-btn);
                 border-radius: 100px;
                 border: none;
             }
             &-follow {
                 background: transparent;
-                border: 1px solid #EB5757;
+                border: 1px solid var(--bg-content-btn);
                 border-radius: 100px;
             }
         }
@@ -112,10 +112,10 @@
     font-size: 14px;
     line-height: 18px;
     &__play {
-        color: #FFFFFF;
+        color: var(--bg-color);
     }
     &__follow {
-        color: #E86060;
+        color: var(--bg-content-btn);
     }
 }
 

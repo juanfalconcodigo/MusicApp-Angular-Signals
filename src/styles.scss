@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 //generic
+@use "./scss/settings/variables" as *;
 @import './scss/generic/_reset.scss';
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto:wght@300&display=swap');
+
+/* body {
+    background-color: var(--bg-color);
+    color: var(--font-color-main, #666);
+} */
+
 .image-fit {
     width: 100%;
     height: 100%;

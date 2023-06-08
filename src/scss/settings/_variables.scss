@@ -1,0 +1,69 @@
+$bg-theme-light:#FFFFFF;
+$color-theme-light:#020725;
+$bg-theme-dark:#020725;
+$color-theme-dark:#FFFFFF;
+
+/* sidenav */
+
+$bg-sidenav-primary:#662323;
+$bg-sidenav-dark:#020725;
+
+/* content */
+
+$bg-content-primary:#FFFFFF;
+$bg-content-dark:#020725;
+$color-header-icon-primary:#E86060;
+$color-header-icon-dark:#FFFFFF;
+$color-header-title-primary:#4F4F4F;
+$color-header-title-dark:#FFFFFF;
+$bg-content-btn-primary:#E86060;
+$bg-content-btn-dark:#FFFFFF;
+
+/* item */
+
+$color-item-title-primary:#555555;
+$color-item-subtitle-primary:#828282;
+$color-item-title-dark:#FFFFFF;
+$color-item-subtitle-dark:#FFFFFF;
+
+/* footer */
+
+$bg-footer-primary:#EB5757;
+$color-footer-btn-play-primary:#FF7676;
+$bg-footer-dark:#020725;
+$color-footer-btn-play-dark:rgba($bg-theme-light, 0.45);
+
+/* utils */
+
+$title-color-primary:#E86060;
+$title-color-dark:#FFFFFF;
+:root,
+ :root.primary {
+    --bg-color: #{$bg-theme-light};
+    --font-color-main: #{$color-theme-light};
+    --bg-sidenav:#{$bg-sidenav-primary};
+    --bg-content:#{$bg-content-primary};
+    --color-content-header-icon:#{$color-header-icon-primary};
+    --color-content-header-title:#{$color-header-title-primary};
+    --bg-content-btn:#{$bg-content-btn-primary};
+    --color-item-title:#{$color-item-title-primary};
+    --color-item-subtitle:#{$color-item-subtitle-primary};
+    --bg-footer: #{$bg-footer-primary};
+    --btn-footer-play:#{$color-footer-btn-play-primary};
+    --title-color:#{$title-color-primary};
+}
+
+:root.dark {
+    --bg-color: #{$bg-theme-dark};
+    --font-color-main: #{$color-theme-dark};
+    --bg-sidenav:#{$bg-sidenav-dark};
+    --bg-content:#{$bg-content-dark};
+    --color-content-header-icon:#{$color-header-icon-dark};
+    --color-content-header-title:#{$color-header-title-dark};
+    --bg-content-btn:#{$bg-content-btn-dark};
+    --color-item-title:#{$color-item-title-dark};
+    --color-item-subtitle:#{$color-item-subtitle-dark};
+    --bg-footer: #{$bg-footer-dark};
+    --btn-footer-play:#{$color-footer-btn-play-dark};
+    --title-color:#{$title-color-dark};
+}
