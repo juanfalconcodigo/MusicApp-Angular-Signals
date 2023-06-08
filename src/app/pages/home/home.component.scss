@@ -17,7 +17,7 @@ $width-sidenav:330px;
         position: absolute;
         top: 0px;
         left: 0px;
-        background: #662323;
+        background: var(--bg-sidenav);
         width: $width-sidenav;
         height: 100%;
         overflow-y: auto;
@@ -32,7 +32,8 @@ $width-sidenav:330px;
             font-weight: 700;
             font-size: 26px;
             line-height: 28px;
-            color: #E86060;
+            color: var(--title-color);
+            ;
             text-align: left;
             margin-left: 40px;
         }
@@ -108,6 +109,7 @@ $width-sidenav:330px;
         top: 0px;
         right: 0px;
         transition: width ease-in-out 0.3s;
+        background: var(--bg-content);
     }
     &__content {
         width: 100%;
@@ -141,7 +143,7 @@ $width-sidenav:330px;
             font-weight: 700;
             font-size: 22px;
             line-height: 28px;
-            color: #E86060;
+            color: var(--title-color);
         }
         &-items {
             box-sizing: border-box;
@@ -180,7 +182,7 @@ $width-sidenav:330px;
             font-weight: 700;
             font-size: 14px;
             line-height: 18px;
-            color: #555555;
+            color: var( --color-item-title);
         }
         &-artist {
             font-family: 'Quicksand';
@@ -188,7 +190,7 @@ $width-sidenav:330px;
             font-weight: 400;
             font-size: 12px;
             line-height: 15px;
-            color: #828282;
+            color: var( --color-item-subtitle);
         }
     }
     &__footer {

@@ -5,6 +5,7 @@ import { AppState } from 'src/app/app-reducer';
 import { debounceTime, map } from 'rxjs';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { TYPE_THEME } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-footer',
@@ -19,6 +20,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   rangeVolumeCopy = signal<number>(50);
   store = inject(Store<AppState>);
   dataMusic = toSignal(this.store.select('music'));
+  dataTheme = toSignal(this.store.select('themeApp'));
   song = signal("song");
   singer = signal("singer");
   image = signal("");
@@ -41,6 +43,10 @@ export class FooterComponent implements OnInit, OnDestroy {
         me.play();
       }, 500);
     }, { allowSignalWrites: true });
+    effect(() => {
+      console.log('[THEME-FOOTER]', me.dataTheme());
+      me.setTheme(me.dataTheme()?.theme);
+    }, { allowSignalWrites: true });
   }
 
 
@@ -59,7 +65,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       if (!me.audio()) return;
       me.audioControlRef.nativeElement.volume = data;
     });
-
+    me.setTheme('primary');
   }
 
   ngOnDestroy(): void {
@@ -91,6 +97,10 @@ export class FooterComponent implements OnInit, OnDestroy {
       return;
     }
     me.rangeVolume.setValue(me.rangeVolumeCopy(), { emitEvent: true });
+  }
+
+  setTheme(t: TYPE_THEME) {
+    document.documentElement.className = t;
   }
 
 }
