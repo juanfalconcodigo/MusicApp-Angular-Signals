@@ -1,32 +1,30 @@
 import { Component, ElementRef, Renderer2, ViewChild, signal, inject, OnInit, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MusicDetailComponent } from '../../components/music-detail/music-detail.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app-reducer';
-import { setMusic } from 'src/app/store/music.actions';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { setTheme } from 'src/app/store/theme.action';
 import { TYPE_THEME } from 'src/app/interfaces';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
-    MusicDetailComponent,
     FooterComponent,
     HeaderComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterOutlet
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  items = signal<any[]>([]);
   store = inject(Store<AppState>);
   showCompleteContent = signal(false);
   dataTheme = toSignal(this.store.select('themeApp'));
@@ -50,18 +48,6 @@ export class HomeComponent implements OnInit {
       const theme: TYPE_THEME = value == true ? 'dark' : 'primary';
       me.store.dispatch(setTheme({ theme }));
     });
-  }
-
-
-
-  changeStateMusic(item: any) {
-    let me = this;
-    me.store.dispatch(setMusic({ singer: item.artist.name, song: item.title, image: item.album.cover_medium, audio: item.preview, artist: item.artist, album: item.album }));
-  }
-
-  viewData(data: any[]) {
-    let me = this;
-    me.items.set(data);
   }
 
   toogleSidebar() {

@@ -61,31 +61,9 @@
             <section class="layout-container__content">
 
                 <div class="layout-container__content-header">
-                    <app-header (itemsResult)="viewData($event)" />
+                    <app-header/>
                 </div>
-                <div class="layout-container__content-music-detail">
-                    <app-music-detail />
-                </div>
-
-                <div class="layout-container__content-results">
-                    <h3 class="layout-container__content-results-title">Resultados</h3>
-                    <div class="layout-container__content-results-items">
-                        <div class="layout-container__content-item" *ngFor="let item of items()" (click)="changeStateMusic(item)">
-                            <div class="layout-container__content-item-image">
-                                <img [src]="item.album.cover_medium" alt="Image song" class="image-fit">
-                                <div class="layout-container__content-item-image-back">
-                                    <i class="fa fa-play fa-2x icon-play" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="layout-container__content-item-title text-validate-length">{{item.title}}
-                                </h4>
-                            </div>
-                            <h5 class="layout-container__content-item-artist text-validate-length">{{item.artist.name}}
-                            </h5>
-                        </div>
-                    </div>
-                </div>
+                <router-outlet/>
             </section>
         </section>
 

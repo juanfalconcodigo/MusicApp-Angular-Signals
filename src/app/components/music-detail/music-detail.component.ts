@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Subscription, of } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { ArtistResponse } from 'src/app/interfaces';
-import { ApiService } from 'src/app/core/api.service';
+import { ApiService } from 'src/app/core/services/api.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
