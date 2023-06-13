@@ -1,0 +1,25 @@
+<div class="main-container">
+    <div class="main-container__content-music-detail">
+        <app-music-detail />
+    </div>
+    <div class="main-container__content-results">
+        <h3 class="main-container__content-results-title">Resultados</h3>
+        <div class="main-container__content-results-items">
+            <div class="main-container__content-item" *ngFor="let item of songs()" (click)="changeStateMusic(item)">
+                <div class="main-container__content-item-image">
+                    <img [src]="item.album.cover_medium" alt="Image song" class="image-fit">
+                    <div class="main-container__content-item-image-back">
+                        <i class="fa fa-play fa-2x icon-play" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="main-container__content-item-title text-validate-length">{{item.title}}
+                    </h4>
+                </div>
+                <h5 class="main-container__content-item-artist text-validate-length">{{item.artist.name}}
+                </h5>
+            </div>
+        </div>
+    </div>
+
+</div>
