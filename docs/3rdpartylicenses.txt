@@ -1,15 +1,5 @@
 
 --------------------------------------------------------------------------------
-Package: @angular/platform-browser
-License: "MIT"
-
-
---------------------------------------------------------------------------------
-Package: @angular/router
-License: "MIT"
-
-
---------------------------------------------------------------------------------
 Package: @ngrx/store-devtools
 License: "MIT"
 
@@ -42,6 +32,31 @@ THE SOFTWARE.
 
 --------------------------------------------------------------------------------
 Package: @angular/forms
+License: "MIT"
+
+
+--------------------------------------------------------------------------------
+Package: @angular/platform-browser
+License: "MIT"
+
+
+--------------------------------------------------------------------------------
+Package: @angular/router
+License: "MIT"
+
+
+--------------------------------------------------------------------------------
+Package: @angular/core
+License: "MIT"
+
+
+--------------------------------------------------------------------------------
+Package: @ngrx/store
+License: "MIT"
+
+
+--------------------------------------------------------------------------------
+Package: @angular/common
 License: "MIT"
 
 
@@ -268,19 +283,4 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
---------------------------------------------------------------------------------
-Package: @angular/core
-License: "MIT"
-
-
---------------------------------------------------------------------------------
-Package: @angular/common
-License: "MIT"
-
-
---------------------------------------------------------------------------------
-Package: @ngrx/store
-License: "MIT"
-
-
 --------------------------------------------------------------------------------
