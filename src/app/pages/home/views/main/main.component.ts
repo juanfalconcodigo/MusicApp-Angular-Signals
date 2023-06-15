@@ -31,6 +31,6 @@ export class MainComponent {
   }
   changeStateMusic(item: any) {
     let me = this;
-    me.store.dispatch(setMusic({ singer: item.artist.name, song: item.title, image: item.album.cover_medium, audio: item.preview, artist: item.artist, album: item.album }));
+    me.store.dispatch(setMusic({ id: item.id, singer: item.artist.name, song: item.title, image: item.album.cover_medium, audio: item.preview, artist: item.artist, album: item.album }));
   }
 }

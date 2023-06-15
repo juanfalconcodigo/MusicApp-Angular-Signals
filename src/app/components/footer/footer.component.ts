@@ -6,6 +6,7 @@ import { debounceTime, map } from 'rxjs';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TYPE_THEME } from 'src/app/interfaces';
+import { setMusic } from 'src/app/store/music.actions';
 
 @Component({
   selector: 'app-footer',
@@ -21,6 +22,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   store = inject(Store<AppState>);
   dataMusic = toSignal(this.store.select('music'));
   dataTheme = toSignal(this.store.select('themeApp'));
+  songs = toSignal(this.store.select('songs'));
   song = signal("song");
   singer = signal("singer");
   image = signal("");
@@ -47,6 +49,12 @@ export class FooterComponent implements OnInit, OnDestroy {
       console.log('[THEME-FOOTER]', me.dataTheme());
       me.setTheme(me.dataTheme()?.theme);
     }, { allowSignalWrites: true });
+    effect(() => {
+      console.log('[SONGS]', me.songs());
+      const { results } = me.songs();
+      if (results.length <= 0) return;
+
+    }, { allowSignalWrites: true })
   }
 
 
@@ -73,11 +81,45 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   previous() {
-    console.log('[PREVIOUS]');
+    let me = this;
+    console.log('[PREVIOUS]', me.dataMusic());
+    const dataMusicCurrent = me.dataMusic();
+    const songsCurrent = me.songs().results;
+    const indexSongSelected = songsCurrent.findIndex((e: any) => dataMusicCurrent.id == e.id);
+    console.log('[INDEX-MUSIC]', indexSongSelected);
+    if (indexSongSelected == -1) return;
+    if (indexSongSelected - 1 < 0) return;
+    const ITEM = songsCurrent[indexSongSelected - 1];
+    me.store.dispatch(setMusic({
+      id: ITEM.id,
+      singer: ITEM.artist.name,
+      song: ITEM.title,
+      image: ITEM.album.cover_medium,
+      audio: ITEM.preview,
+      artist: ITEM.artist,
+      album: ITEM.album
+    }));
   }
 
   next() {
-    console.log('[NEXT]');
+    let me = this;
+    console.log('[NEXT]', me.dataMusic());
+    const dataMusicCurrent = me.dataMusic();
+    const songsCurrent = me.songs().results;
+    const indexSongSelected = songsCurrent.findIndex((e: any) => dataMusicCurrent.id == e.id);
+    console.log('[INDEX-MUSIC]', indexSongSelected);
+    if (indexSongSelected == -1) return;
+    if (indexSongSelected + 1 >= songsCurrent.length) return;
+    const ITEM = songsCurrent[indexSongSelected + 1];
+    me.store.dispatch(setMusic({
+      id: ITEM.id,
+      singer: ITEM.artist.name,
+      song: ITEM.title,
+      image: ITEM.album.cover_medium,
+      audio: ITEM.preview,
+      artist: ITEM.artist,
+      album: ITEM.album
+    }));
   }
 
   play() {

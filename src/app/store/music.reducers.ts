@@ -3,6 +3,7 @@ import { setMusic } from './music.actions';
 import { Album, Artist } from '../interfaces';
 
 export interface MusicState {
+    id:number;
     song: string;
     singer: string;
     image: string;
@@ -12,6 +13,7 @@ export interface MusicState {
 }
 
 const initialState: MusicState = {
+    id:0,
     singer: "",
     song: "",
     image: "",
@@ -22,7 +24,7 @@ const initialState: MusicState = {
 
 export const _musicReducer = createReducer(
     initialState,
-    on(setMusic, (state, { singer, song, image, audio, artist, album }) => {
+    on(setMusic, (state, { singer, song, image, audio, artist, album, id }) => {
         return {
             ...state,
             singer,
@@ -30,7 +32,8 @@ export const _musicReducer = createReducer(
             image,
             audio,
             artist,
-            album
+            album,
+            id
         }
     })
 );
